@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toyxona - Eng yaxshi toy marosim joylarini toping</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-pattern {
+            background-color: #f7fafc;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e2e8f0' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .venue-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold text-indigo-600">Toyxona</span>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="#" class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Bosh sahifa
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Toyxonalar
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Haqimizda
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Bog'lanish
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                    <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                        <i class="fas fa-user-circle mr-1"></i> Kirish
+                    </a>
+                    <a href="#" class="ml-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+                        Ro'yxatdan o'tish
+                    </a>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
+                        <span class="sr-only">Asosiy menyuni ochish</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-pattern py-16 sm:py-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">Eng yaxshi toyxonalarni toping</h1>
+                <p class="mt-5 text-xl text-gray-500">Oila qurishning birinchi qadam, mukammal marosim joyini topish bilan boshlanadi</p>
+                
+                <div class="mt-8 flex justify-center">
+                    <div class="bg-white p-4 rounded-lg shadow-lg max-w-xl w-full">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label for="region" class="block text-sm font-medium text-gray-700 text-left">Viloyat</label>
+                                <select id="region" name="region" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                    <option>Toshkent</option>
+                                    <option>Samarqand</option>
+                                    <option>Andijon</option>
+                                    <option>Buxoro</option>
+                                    <option>Farg'ona</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="date" class="block text-sm font-medium text-gray-700 text-left">Sana</label>
+                                <input type="date" name="date" id="date" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            </div>
+                            <div>
+                                <label for="guests" class="block text-sm font-medium text-gray-700 text-left">Mehmonlar soni</label>
+                                <input type="number" name="guests" id="guests" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="100">
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                <i class="fas fa-search mr-2"></i> Qidirish
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Venues -->
+    <div class="bg-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-8">Mashhur toyxonalar</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Venue Card 1 -->
+                <div class="venue-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative h-48">
+                        <img class="w-full h-full object-cover" src="https://via.placeholder.com/600x400" alt="Toyxona rasmi">
+                        <div class="absolute top-2 right-2 bg-white rounded-full p-2">
+                            <i class="fas fa-heart text-gray-300 hover:text-red-500 cursor-pointer"></i>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold text-gray-900">Royal Palace</h3>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1 text-sm text-gray-600">4.8</span>
+                                <span class="ml-1 text-xs text-gray-500">(120)</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="fas fa-map-marker-alt mr-1"></i>
+                            <span>Toshkent, Chilonzor</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm mb-3">
+                            <i class="fas fa-users mr-1"></i>
+                            <span>300-500 kishi</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-xl font-bold text-indigo-600">5,000,000</span>
+                                <span class="text-gray-500 text-sm ml-1">so'm</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Batafsil
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Venue Card 2 -->
+                <div class="venue-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative h-48">
+                        <img class="w-full h-full object-cover" src="https://via.placeholder.com/600x400" alt="Toyxona rasmi">
+                        <div class="absolute top-2 right-2 bg-white rounded-full p-2">
+                            <i class="fas fa-heart text-gray-300 hover:text-red-500 cursor-pointer"></i>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold text-gray-900">Sevinch</h3>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1 text-sm text-gray-600">4.6</span>
+                                <span class="ml-1 text-xs text-gray-500">(85)</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="fas fa-map-marker-alt mr-1"></i>
+                            <span>Toshkent, Yunusobod</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm mb-3">
+                            <i class="fas fa-users mr-1"></i>
+                            <span>200-400 kishi</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-xl font-bold text-indigo-600">4,500,000</span>
+                                <span class="text-gray-500 text-sm ml-1">so'm</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Batafsil
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Venue Card 3 -->
+                <div class="venue-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative h-48">
+                        <img class="w-full h-full object-cover" src="https://via.placeholder.com/600x400" alt="Toyxona rasmi">
+                        <div class="absolute top-2 right-2 bg-white rounded-full p-2">
+                            <i class="fas fa-heart text-gray-300 hover:text-red-500 cursor-pointer"></i>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold text-gray-900">Zumrad</h3>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1 text-sm text-gray-600">4.7</span>
+                                <span class="ml-1 text-xs text-gray-500">(98)</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="fas fa-map-marker-alt mr-1"></i>
+                            <span>Toshkent, Olmazor</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm mb-3">
+                            <i class="fas fa-users mr-1"></i>
+                            <span>150-350 kishi</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-xl font-bold text-indigo-600">3,800,000</span>
+                                <span class="text-gray-500 text-sm ml-1">so'm</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Batafsil
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-10 text-center">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Barcha toyxonalarni ko'rish
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works -->
+    <div class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-12">Qanday ishlaydi</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-indigo-100 rounded-full h-20 w-20 flex items-center justify-center text-2xl text-indigo-600 mx-auto">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="mt-4 text-xl font-bold text-gray-900">Qidiring</h3>
+                    <p class="mt-2 text-base text-gray-500">Joylashuv, sana va mehmonlar soniga qarab eng yaxshi toyxonalarni qidiring.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-indigo-100 rounded-full h-20 w-20 flex items-center justify-center text-2xl text-indigo-600 mx-auto">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3 class="mt-4 text-xl font-bold text-gray-900">Band qiling</h3>
+                    <p class="mt-2 text-base text-gray-500">O'zingizga yoqqan toyxonani tanlang va onlayn tarzda band qiling.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-indigo-100 rounded-full h-20 w-20 flex items-center justify-center text-2xl text-indigo-600 mx-auto">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h3 class="mt-4 text-xl font-bold text-gray-900">Nishonlang</h3>
+                    <p class="mt-2 text-base text-gray-500">Muhim kunni xotirjam va xursandchilik bilan o'tkazing!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="bg-white py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-12">Mijozlar fikri</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="h-12 w-12 rounded-full bg-indigo-200 flex items-center justify-center text-xl text-indigo-600">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-bold text-gray-900">Aziza Karimova</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Royal Palace toyxonasida to'yimizni o'tkazdik. Xizmat juda yuqori darajada, xodimlar juda e'tiborli va professional. Barcha mehmonlarimiz joydan mamnun qolishdi. Tavsiya qilaman!"</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="h-12 w-12 rounded-full bg-indigo-200 flex items-center justify-center text-xl text-indigo-600">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-bold text-gray-900">Javohir Toshmatov</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Toyxona platformasi orqali juda tez va oson toyxona topishga muvaffaq bo'ldik. Barcha ma'lumotlar aniq va to'liq berilgan. Narx-navo ham juda qulay. Rahmat sizlarga!"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- App Download -->
+    <div class="bg-indigo-700 py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between">
+                <div class="text-center md:text-left mb-8 md:mb-0">
+                    <h2 class="text-3xl font-extrabold text-white mb-2">Telegram botimiz orqali ham toyxonalar toping!</h2>
+                    <p class="text-indigo-100 text-lg mb-6">Tezkor javob, qulay interfeys va eng yaxshi toyxonalar</p>
+                    <button class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-700 focus:ring-white">
+                        <i class="fab fa-telegram text-2xl mr-2"></i>
+                        Telegram botga o'tish
+                    </button>
+                </div>
+                <div class="relative h-64 w-64">
+                    <img src="https://via.placeholder.com/400x400" alt="Telefon" class="absolute inset-0 h-full w-full object-cover">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Toyxona</h3>
+                    <p class="text-gray-300">Eng yaxshi toyxonalarni topish platformasi</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Kompaniya</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Haqimizda</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Xizmatlar</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Hamkorlar</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Bog'lanish</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Yordam</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Ko'p so'raladigan savollar</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Qo'llanma</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Qo'llab-quvvatlash</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Foydalanish shartlari</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Kontakt</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Toshkent sh., Amir Temur ko'chasi, 108-uy</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <span>+998 90 123 45 67</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>info@toyxona.uz</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2025 Toyxona. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInput = document.getElementById('date');
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const formattedToday = `${yyyy}-${mm}-${dd}`;
+            
+            dateInput.min = formattedToday;
+            dateInput.value = formattedToday;
+            
+            const heartIcons = document.querySelectorAll('.fa-heart');
+            heartIcons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    this.classList.toggle('text-gray-300');
+                    this.classList.toggle('text-red-500');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
